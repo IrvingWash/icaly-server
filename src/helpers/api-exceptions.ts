@@ -5,3 +5,9 @@ export class CategoryNotFoundException extends HttpException {
 		super('Category not found', HttpStatus.BAD_REQUEST);
 	}
 }
+
+export class EntryNotFoundException extends HttpException {
+	public constructor() {
+		super('Entry not found', HttpStatus.BAD_REQUEST);
+	}
+}

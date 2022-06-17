@@ -6,6 +6,8 @@ import {
 
 import mongoose from "mongoose";
 
+import { Category } from "src/category/schema/category.schema";
+
 @Schema({ timestamps: true })
 export class Entry {
 	@Prop({ required: true })
@@ -19,6 +21,12 @@ export class Entry {
 
 	@Prop()
 	public url: string;
+
+	@Prop({
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Category',
+	})
+	public category: Category;
 }
 
 export const EntrySchema = SchemaFactory.createForClass(Entry);

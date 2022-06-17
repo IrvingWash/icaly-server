@@ -12,4 +12,7 @@ export class EntryDto {
 
 	@IsUrl()
 	public readonly url: string;
+
+	@IsString()
+	public readonly category: string;
 }

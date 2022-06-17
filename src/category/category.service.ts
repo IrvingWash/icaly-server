@@ -20,7 +20,9 @@ export class CategoryService {
 	}
 
 	public async category(title: string): Promise<Category> {
-		const category = await this._categoryModel.findOne({ title: title });
+		const category = await this._categoryModel
+			.findOne({ title: title })
+			.populate('entries');
 
 		if (category === null) {
 			throw new CategoryNotFoundException;
